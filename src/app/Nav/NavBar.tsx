@@ -4,7 +4,7 @@ import React from "react";
 export const NavBar = () => {
     return (
         <div className="flex flex-row">
-            <nav className="hidden md:flex flex-col w-1/5 md:w-1/4 xl:w-1/6  min-h-screen p-8 gap-5  border-r-2">
+            <nav className="hidden md:flex flex-col w-1/5 min-w-60 md:w-1/4 xl:w-1/7 min-h-screen p-8 gap-5 border-r-2">
                 <Link href={"/"}>Home</Link>
                 <Link href={"/projects"}>Projects</Link>
                 <Link href={"/notes"}>Notes</Link>
