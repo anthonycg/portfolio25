@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "./Nav/NavBar";
+import RightSideBar from "./RightSideBar/RightSideBar";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -28,13 +29,19 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <div className="flex flex-row min-h-screen bg-gradient-to-b from-gray-950 to-gray-900">
-                    <NavBar />
-                    <main className="flex-1 px-6 py-8justify-center">
-                        <div className="flex max-w-3xl justify-center mx-auto">
+                <div className="flex flex-col h-full min-h-screen 2xl:flex-row bg-gradient-to-b from-gray-950 to-gray-900">
+                    <aside className="order-1 w-full md:w-64 md:order-none">
+                        <NavBar />
+                    </aside>
+
+                    <main className="justify-center order-2 md:order-none">
+                        <div className="flex justify-center max-w-3xl">
                             {children}
                         </div>
                     </main>
+                    <aside className="order-3 w-full md:w-64 md:order-none">
+                        <RightSideBar />
+                    </aside>
                 </div>
             </body>
         </html>
