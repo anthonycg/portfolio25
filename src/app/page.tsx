@@ -6,13 +6,13 @@ import { useRouter } from "next/navigation";
 export default function Index() {
     const router = useRouter();
     return (
-        <div className="flex flex-col gap-5">
-            <div className="mt-10">
-                <div className="max-w-3xl mx-auto ">
+        <div className="flex flex-col gap-5 px-2 py-4">
+            <div>
+                <div className="">
                     <h1 className="text-5xl font-bold tracking-tight text-white">
-                        Anthony Gibson II
+                        Anthony Gibson
                     </h1>
-                    <p className="max-w-xl mt-4 text-lg leading-relaxed text-gray-400">
+                    <p className="mt-4 text-lg leading-relaxed text-gray-400">
                         I'm a software engineer who learns by building. Most
                         projects start as experiments that become real products.
                     </p>

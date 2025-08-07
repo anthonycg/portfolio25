@@ -5,10 +5,19 @@ export default function RightSideBar() {
     return (
         <div>
             {/* <div className="hidden 2xl:flex flex-col w-0.25 bg-green-200 min-h-screen"></div> */}
-            <nav className="flex-col gap-5 pt-2 text-left md:flex-row min-w-20 lg:min-h-20">
-                <Link href={"/"}>Blog1</Link>
-                <Link href={"/projects"}> Blog2</Link>
-                <Link href={"/notes"}> Blog3</Link>
+            <nav className="flex flex-col gap-5 pt-8 text-left 2xl:items-center">
+                <div>
+                    <Link href={"/notes"}>Notes</Link>
+                </div>
+                <div>
+                    <Link href={"/"}>Blog1</Link>
+                </div>
+                <div>
+                    <Link href={"/projects"}> Blog2</Link>
+                </div>
+                <div>
+                    <Link href={"/notes"}> Blog3</Link>
+                </div>
             </nav>
         </div>
     );

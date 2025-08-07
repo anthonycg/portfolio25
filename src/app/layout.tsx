@@ -29,17 +29,14 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <div className="flex flex-col h-full min-h-screen 2xl:flex-row bg-gradient-to-b from-gray-950 to-gray-900">
-                    <aside className="order-1 w-full md:w-64 md:order-none">
+                <div className="flex flex-col justify-center min-h-screen text-center md:text-left md:pt-30 xs:px-60 2xl:flex-row bg-gradient-to-b from-gray-950 to-gray-900">
+                    <aside className="order-1 w-full xl:w-1/4 md:order-none">
                         <NavBar />
                     </aside>
-
-                    <main className="justify-center order-2 md:order-none">
-                        <div className="flex justify-center max-w-3xl">
-                            {children}
-                        </div>
+                    <main className="order-2 md:w-2/4 md:order-none">
+                        <div>{children}</div>
                     </main>
-                    <aside className="order-3 w-full md:w-64 md:order-none">
+                    <aside className="order-3 w-full md:w-1/4 md:order-none">
                         <RightSideBar />
                     </aside>
                 </div>
