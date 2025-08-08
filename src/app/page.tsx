@@ -7,7 +7,7 @@ export default function Index() {
     return (
         <div className="flex flex-col justify-center gap-5 px-2 py-4">
             <About />
-            <div className="mt-5 text-3xl">Projects</div>
+            <h2 className="mt-5 text-3xl">Projects</h2>
             <ProjectsList />
         </div>
     );
