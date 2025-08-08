@@ -29,7 +29,7 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <div className="flex flex-col justify-center min-h-screen text-center md:text-left md:pt-30 xs:px-60 2xl:flex-row bg-gradient-to-b from-gray-950 to-gray-900">
+                <div className="flex flex-col items-center min-h-screen text-center 2xl:items-start md:justify-center md:text-left md:pt-30 xs:px-60 2xl:flex-row bg-gradient-to-b from-gray-950 to-gray-900">
                     <aside className="order-1 w-full xl:w-1/4 md:order-none">
                         <NavBar />
                     </aside>

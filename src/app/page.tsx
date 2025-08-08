@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function Index() {
     const router = useRouter();
     return (
-        <div className="flex flex-col gap-5 px-2 py-4">
+        <div className="flex flex-col justify-center gap-5 px-2 py-4">
             <div>
                 <div className="">
                     <h1 className="text-5xl font-bold tracking-tight text-white">
