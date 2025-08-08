@@ -1,5 +1,6 @@
 import React from "react";
+import ProjectsList from "../Components/ProjectsList";
 
 export default function Projects() {
-    return <div>Projects</div>;
+    return <ProjectsList />;
 }
