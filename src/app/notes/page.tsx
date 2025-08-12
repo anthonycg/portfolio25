@@ -1,10 +1,7 @@
 "use client";
 import React from "react";
-import Tiptap from "../TipTap";
-import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor";
 import {
     SignInButton,
-    SignUpButton,
     SignedIn,
     SignedOut,
     UserButton,
