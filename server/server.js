@@ -12,14 +12,15 @@ app.use(clerkMiddleware());
 // Public route
 app.get("/health", (_req, res) => res.json({ ok: true }));
 
-// Protected route: only signed-in users (you) can hit this
+// Protected route: only signed-in users can access
 app.post("/posts", requireAuth(), async (req, res) => {
-  const userId = req.auth.userId; // <-- available after requireAuth()
-  const { title, body } = req.body;
-  if (!title || !body) return res.status(400).json({ error: "Missing fields" });
+    const userId = req.auth.userId;
+    const { title, body } = req.body;
+    if (!title || !body)
+        return res.status(400).json({ error: "Missing fields" });
 
-  // TODO: write to DB here...
-  res.json({ ok: true, by: userId });
+    // TODO: write to DB here...
+    res.json({ ok: true, by: userId });
 });
 
 const PORT = process.env.PORT || 5001;
