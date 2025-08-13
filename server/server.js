@@ -1,27 +1,49 @@
+import "dotenv/config";
 import express from "express";
-import { clerkMiddleware, requireAuth } from "@clerk/express";
 import cors from "cors";
+import prisma from "./db.js";
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 
-// Attach Clerk middleware once, early
-app.use(clerkMiddleware());
+app.use(cors({ origin: "http://localhost:3000" }));
 
-// Public route
-app.get("/health", (_req, res) => res.json({ ok: true }));
-
-// Protected route: only signed-in users can access
-app.post("/posts", requireAuth(), async (req, res) => {
-    const userId = req.auth.userId;
-    const { title, body } = req.body;
-    if (!title || !body)
-        return res.status(400).json({ error: "Missing fields" });
-
-    // TODO: write to DB here...
-    res.json({ ok: true, by: userId });
+app.get("/post/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await prisma.post.findUnique({
+            where: { id },
+        });
+        res.json(post);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({ error: "Post Not Found." });
+    }
 });
 
-const PORT = process.env.PORT || 5001;
+app.get("/posts", async (req, res) => {
+    try {
+        const posts = await prisma.post.findMany({
+            orderBy: { createdAt: "desc" },
+        });
+        res.json(posts);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Failed to fetch posts." });
+    }
+});
+
+app.post("/post/new", async (req, res) => {
+    const { title, content } = req.body;
+    if (!title || !content)
+        return res.status(400).json({ error: "Missing fields" });
+    const post = await prisma.post.create({
+        data: { title, body: content, authorId: "Anthony" },
+    });
+    res.json(post);
+    res.status(200);
+    console.log(content);
+});
+
+const PORT = 5001;
 app.listen(PORT, () => console.log(`Portfolio API running on :${PORT}`));

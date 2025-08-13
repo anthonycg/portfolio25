@@ -73,8 +73,6 @@ import { handleImageUpload, MAX_FILE_SIZE } from "@/lib/tiptap-utils";
 // --- Styles ---
 import "@/components/tiptap-templates/simple/simple-editor.scss";
 
-import content from "@/components/tiptap-templates/simple/data/content.json";
-
 const MainToolbarContent = ({
     onHighlighterClick,
     onLinkClick,
@@ -236,7 +234,7 @@ export function SimpleEditor({ onSave }) {
                 onError: (error) => console.error("Upload failed:", error),
             }),
         ],
-        content,
+        content: "<p>What's on your mind today?</p>",
     });
 
     const rect = useCursorVisibility({
