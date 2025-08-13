@@ -10,7 +10,7 @@ type Note = {
 };
 
 async function getNote(id: string): Promise<Note> {
-    const res = await fetch(`http://localhost:5001/post/${id}`, {
+    const res = await fetch(`${process.env.API_BASE}/post/${id}`, {
         cache: "no-store",
     });
     if (!res.ok) throw new Error("Note fetch failed");

@@ -12,7 +12,7 @@ export default function Notes() {
 
     const handleSave = async () => {
         try {
-            await axios.post("http://localhost:5001/post/new", {
+            await axios.post(`${process.env.API_BASE}/post/new`, {
                 title,
                 content,
             });

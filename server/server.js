@@ -6,7 +6,7 @@ import prisma from "./db.js";
 const app = express();
 app.use(express.json());
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: ["http://localhost:3000", "https://sonant.net"] }));
 
 app.get("/post/:id", async (req, res) => {
     const { id } = req.params;

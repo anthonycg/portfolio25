@@ -5,7 +5,7 @@ import axios from "axios";
 import { UUID } from "crypto";
 import { useRouter } from "next/navigation";
 
-type Note = {
+export type Note = {
     id: UUID;
     title: string;
     body: string;
@@ -18,7 +18,7 @@ export default function Notes() {
     const [notes, setNotes] = useState<Note[]>();
 
     const getNotes = async () => {
-        const res = await axios.get("http://localhost:5001/posts");
+        const res = await axios.get(`${process.env.API_BASE}/posts`);
         setNotes(res.data ?? []);
     };
 
@@ -31,7 +31,9 @@ export default function Notes() {
         <div className="flex flex-col items-center justify-center gap-10">
             <div className="flex flex-row gap-4">
                 <SignedOut>
-                    <SignInButton />
+                    <div className="pt-6">
+                        <SignInButton />
+                    </div>
                 </SignedOut>
                 <SignedIn>
                     <UserButton />
@@ -43,14 +45,14 @@ export default function Notes() {
                     </button>
                 </SignedIn>
             </div>
-            <div className="flex flex-col w-3/4 gap-4">
+            <div className="flex flex-col w-full gap-4 p-4 sm:w-3/4">
                 {notes?.map((note) => (
                     <button
                         key={note.id as unknown as string}
                         className="cursor-pointer"
                         onClick={() => router.push(`/notes/${note.id}`)}
                     >
-                        <div className="flex items-center h-20 bg-darkBlueTheme">
+                        <div className="flex items-center h-20 p-4 bg-darkBlueTheme">
                             <div className="flex flex-row gap-4">
                                 <h2>{note.title}</h2>
                                 <h3>
