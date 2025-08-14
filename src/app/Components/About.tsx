@@ -9,8 +9,13 @@ export default function About() {
                     Anthony Gibson
                 </h1>
                 <p className="mt-4 text-lg leading-relaxed text-gray-400">
-                    I'm a software engineer who learns by building. Most
-                    projects start as experiments that become real products.
+                    Welcome to my corner of the internet. Here I share my
+                    projects, thoughts, and ways to get in touch. Most of my
+                    work starts as curiosity-driven experiments that evolve into
+                    usable products. Professionally, I specialize in full-stack
+                    development (frontend focused), building scalable,
+                    user-focused applications with technologies like React,
+                    React Native, TypeScript, Node.js, and PostgreSQL.
                 </p>
             </div>
             <h2 className="mt-8 text-xl font-semibold tracking-wide uppercase">
