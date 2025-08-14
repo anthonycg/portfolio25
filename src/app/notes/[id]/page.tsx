@@ -17,8 +17,13 @@ async function getNote(id: string): Promise<Note> {
     return res.json();
 }
 
-export default async function NotePage({ params }: { params: { id: string } }) {
-    const note = await getNote(params.id);
+export default async function NotePage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
+    const { id } = await params;
+    const note = await getNote(id);
 
     if (!note) {
         return (
