@@ -18,7 +18,9 @@ export default function Notes() {
     const [notes, setNotes] = useState<Note[]>();
 
     const getNotes = async () => {
-        const res = await axios.get(`${process.env.API_BASE}/posts`);
+        const res = await axios.get(
+            `${process.env.NEXT_PUBLIC_API_BASE}/posts`
+        );
         setNotes(res.data ?? []);
     };
 

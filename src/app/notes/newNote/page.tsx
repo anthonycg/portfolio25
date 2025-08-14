@@ -11,7 +11,7 @@ export default function Notes() {
 
     const handleSave = async () => {
         try {
-            await axios.post(`${process.env.API_BASE}/post/new`, {
+            await axios.post(`${process.env.NEXT_PUBLIC_API_BASE}/post/new`, {
                 title,
                 content,
             });
